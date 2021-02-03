@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+</head>
+<body>
+    <h1>JSON</h1>
+<h5>JavaScript Object Node</h5>
+
+<script>
+    const user={
+        Name:'Mohammad Osman Goni',
+        Age:65,
+        friends:['Kader','tamal','samad','jamal'],
+        friendsInfo:{
+            Age:15,
+            Collage:'Feni Computer Institute',
+            location:'Feni Jamirhat'
+        }
+    }
+
+    const JsonConvert=JSON.stringify(user);
+    console.log(JsonConvert);
+    const ObjectConvert=JSON.parse(JsonConvert);
+    console.log(ObjectConvert);
+</script>
+</body>
+</html>
+
+

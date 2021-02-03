@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .userData{
+        display: grid;
+        grid-template-columns: 100px 300px 300px;
+        grid-gap: 5px;
+
+        }
+        .userData>div{
+            border: 5px solid black;
+        }
+        ul li{
+            list-style: none;
+        }
+        h3{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Data Load From Server</h2>
+
+<section class="userData">
+
+<div>
+        <h3>User Id</h3>
+        <ul id="user-id">
+        </ul>
+</div>
+
+
+<div>
+        <h3>User Name</h3>
+        <ul id="user-contents">
+        </ul>
+</div>
+
+<div>
+    <h3>Email</h3>
+    <ul id="user-email">
+    </ul>
+</div>
+
+</section>
+
+
+<script>
+    fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => response.json())
+  .then(json => DisplayUser(json))
+  .catch(error=>console.log(error));
+
+  DisplayUser=users=>{
+
+        const userid=users.map(user=>user.id);
+        userid.map(id=>{
+            const ul=document.getElementById('user-id');
+            const li=document.createElement('li');
+            li.innerText=id;
+            ul.appendChild(li);
+        })
+
+
+
+    const User=users.map(user=>user.name);
+        User.map(name=>{
+            const ul=document.getElementById('user-contents');
+            const li=document.createElement('li');
+            li.innerText=name;
+            ul.appendChild(li);
+        })
+
+
+        const UserEmail=users.map(user=>user.email);
+        UserEmail.map(email=>{
+            const ul=document.getElementById('user-email');
+            const li=document.createElement('li');
+            li.innerText=email;
+            ul.appendChild(li);
+        })
+
+
+       
+  };
+</script>
+</body>
+</html>
